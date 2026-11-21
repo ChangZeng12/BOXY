@@ -5,7 +5,12 @@ const root = document.documentElement;
 
 // The design is a fixed 1440px canvas; scale it to the viewport.
 // shortcut: desktop-only layout (phones get a shrunken desktop page), build the Figma mobile frames when mobile matters.
-const fit = () => root.style.setProperty('--s', Math.min(root.clientWidth / 1440, 1.5));
+// Up to 1440 the page scales 1:1 with the viewport; beyond that it grows gently (capped at 1.2×) and
+// the extra width becomes gutters that section backgrounds bleed into: --w page width, --g gutter, --k width ratio.
+const fit = () => {
+  const r = root.clientWidth / 1440, s = r <= 1 ? r : Math.min(1.2, 1 + (r - 1) * .35), w = Math.max(1440, root.clientWidth / s);
+  [['--s', s], ['--w', w], ['--g', (w - 1440) / 2], ['--k', w / 1440]].forEach(([k, v]) => root.style.setProperty(k, v));
+};
 fit();
 addEventListener('resize', fit);
 
@@ -78,7 +83,7 @@ function burst(host, x, y, src = 'assets/about-star-1.svg', n = 9) {
 const mq = $('.marquee');
 if (mq) {
   const unit = `<div class="mq-star"><img src="assets/mq-star.svg" alt=""></div><span>Unboxed</span><img class="mq-spark" src="assets/mq-spark.svg" alt=""><div class="mq-logo"><img src="assets/mq-logo.svg" alt=""></div>`;
-  const group = `<div class="mq-group">${unit.repeat(6)}</div>`;
+  const group = `<div class="mq-group">${unit.repeat(10)}</div>`;
   mq.innerHTML = `<div class="mq-track">${group}${group}</div>`;
   const anim = () => $('.mq-track', mq).getAnimations()[0];
   mq.addEventListener('mouseenter', () => anim()?.updatePlaybackRate(.2));
