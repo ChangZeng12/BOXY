@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources — BOXY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600&family=Rethink+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="page">
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div><button class="nav-menu" type="button" aria-controls="menu"><img src="assets/icon-list.svg" alt=""></button></div>
+    <a class="nav-logo" href="index.html" aria-label="Boxy — home"><img src="assets/logo-nav.svg" alt=""></a>
+    <div><a class="btn" href="share.html#write">Share your story</a></div>
+  </header>
+
+  <nav class="menu" id="menu" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="share.html#write">Share your story</a>
+    <a href="share.html">Read stories</a>
+    <a href="index.html#about">About us</a>
+    <a href="index.html#resources">Resources</a>
+    <small>unbox what’s been holding you back.</small>
+  </nav>
+
+  <!-- content is filled in by js/articles.js from ?id=… -->
+  <main class="post" id="post">
+    <header class="post-head">
+      <a class="post-back hand" href="index.html#resources"><span>←</span> all resources</a>
+      <p class="post-kicker rv"><b id="pSrc"></b> · <span id="pMins"></span> min read</p>
+      <h1 id="pTitle" data-words></h1>
+      <p class="post-dek rv" id="pDek"></p>
+      <p class="post-meta rv">Words by the Boxy team · <span id="pDate"></span></p>
+      <img class="post-scribble s1 wig" src="assets/about-star-1.svg" alt="">
+      <img class="post-scribble s2 wig" style="--i:2" src="assets/about-star-2.svg" alt="">
+      <img class="post-scribble s3 wig" style="--i:1" src="assets/book-spark.svg" alt="">
+    </header>
+
+    <figure class="post-hero">
+      <div class="post-hero-img"><img id="pImg" alt=""></div>
+      <img class="post-tape t1" src="assets/tape.webp" alt="">
+      <img class="post-tape t2" src="assets/tape.webp" alt="">
+      <figcaption id="pCredit"></figcaption>
+    </figure>
+
+    <div class="post-layout">
+      <aside class="post-rail">
+        <p class="hand">pass it on</p>
+        <button class="btn btn-line" id="copy" type="button">Copy link</button>
+        <a class="btn btn-line" href="#post">Back to top</a>
+      </aside>
+      <article class="post-body" id="pBody"></article>
+    </div>
+
+    <section class="post-helpful rv" id="helpful">
+      <h2>Did this help?</h2>
+      <p>No wrong answers. It helps us write things worth reading.</p>
+      <div><button class="btn" type="button" data-v="yes">Yes, a little</button><button class="btn btn-line" type="button" data-v="no">Not really</button></div>
+    </section>
+
+    <aside class="post-care rv">
+      <p class="hand">if today is heavy</p>
+      <p>Boxy shares stories and starting points, not medical advice. If you’re in crisis or thinking about hurting yourself, please contact your local emergency number or a crisis line now — in the US you can call or text 988.</p>
+    </aside>
+  </main>
+
+  <section class="featured post-more">
+    <div class="featured-head"><h2 data-words><em>keep</em> reading</h2></div>
+    <div class="featured-grid" id="pMore"></div>
+    <a class="btn" href="index.html#resources">All resources</a>
+  </section>
+
+  <div class="marquee" aria-hidden="true"></div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-id">
+          <div class="footer-logo"><img src="assets/logo-footer.svg" alt="Boxy"></div>
+          <p class="serif-32">unbox what’s been holding you back.</p>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><img src="assets/social-ig.svg" alt=""></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/social-in.svg" alt=""></a>
+          <a href="#" aria-label="TikTok"><img src="assets/social-tt.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="footer-side">
+        <a class="btn" href="share.html#write">Share your story</a>
+        <form class="subscribe" novalidate>
+          <label class="serif-32" for="sub">Subscribe for unbox stories</label>
+          <div class="subscribe-field">
+            <input id="sub" type="email" placeholder="Enter your email address" autocomplete="email" required>
+            <button type="submit" aria-label="Subscribe"><img src="assets/arrow-right-sm.svg" alt=""></button>
+            <span class="subscribe-ok" role="status">You’re in — talk soon.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom"><hr><p>© 2025 Boxy. All rights reserved.</p></div>
+  </footer>
+</div>
+<script src="js/articles.js?v=2"></script>
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

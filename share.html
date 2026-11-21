@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Share your story — BOXY</title>
+<meta name="description" content="Explore what’s been unboxed and tell your story.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Instrument+Serif:ital@0;1&family=Public+Sans:wght@400;500;600&family=Rethink+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="page">
+
+  <header class="nav">
+    <div><button class="nav-menu" type="button" aria-controls="menu"><img src="assets/icon-list.svg" alt=""></button></div>
+    <a class="nav-logo" href="index.html" aria-label="Boxy — home"><img src="assets/logo-nav.svg" alt=""></a>
+    <div><a class="btn js-share" href="#write">Share your story</a></div>
+  </header>
+
+  <nav class="menu" id="menu" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a class="js-share" href="#write">Share your story</a>
+    <a class="js-read" href="#hero">Read stories</a>
+    <a href="#featured">Featured stories</a>
+    <a href="index.html#resources">Resources</a>
+    <small>unbox what’s been holding you back.</small>
+  </nav>
+
+  <main>
+    <section class="hero-share" id="hero" data-mode="read">
+      <div class="wood"></div>
+      <img class="deco deco-stars wig" src="assets/hero-stars.svg" alt="">
+      <img class="deco deco-peace" src="assets/peace.svg" alt="">
+
+      <div class="hero-head">
+        <h1><em>Share your </em>story</h1>
+        <p>Explore what’s been unboxed and tell your story.</p>
+        <button class="btn cta" id="cta" type="button">Share your story</button>
+      </div>
+
+      <!-- the open notebook: read other people's stories -->
+      <article class="book" id="book" aria-live="polite">
+        <div class="book-img"><img src="assets/book.webp" alt=""></div>
+        <div class="rb" style="left:121px;top:350.4px;width:45.57px;height:46.33px"><img class="wig" style="transform:rotate(-114.62deg) scaleX(-1)" src="assets/book-star-1.svg" alt=""></div>
+        <div class="rb" style="left:445px;top:649.4px;width:48.68px;height:48.94px"><img class="wig" style="transform:rotate(-50.8deg) scaleX(-1);--i:2" src="assets/book-star-2.svg" alt=""></div>
+        <div class="rb" style="left:49px;top:468.4px;width:258.46px;height:234.71px"><img style="transform:rotate(-153.46deg) scaleX(-1)" src="assets/book-plane.svg" alt=""></div>
+        <div class="rb" style="left:371px;top:54.39px;width:67.957px;height:60.981px"><img class="wig" style="transform:rotate(-11.77deg) scaleY(-1);--i:1" src="assets/book-spark.svg" alt=""></div>
+
+        <h2 class="book-title" id="storyTitle">Dani’s story</h2>
+        <div class="book-body" id="storyBody"></div>
+
+        <div class="pol lift" id="polA" style="--x:265px;--y:206.22px;--w:229.006px;--r:-14.62deg">
+          <span class="pol-base"><img src="assets/polaroid-base.jpg" alt=""></span>
+          <span class="pol-photo"><img src="assets/photo-flowers.jpg" alt=""></span>
+          <img class="pol-tape" src="assets/tape.webp" alt="">
+        </div>
+        <div class="pol lift" id="polB" style="--x:353.22px;--y:491.24px;--w:227.544px;--r:12.49deg">
+          <span class="pol-base"><img src="assets/polaroid-base.jpg" alt=""></span>
+          <span class="pol-photo"><img src="assets/photo-friends.jpg" alt=""></span>
+          <img class="pol-tape" src="assets/tape.webp" alt="">
+        </div>
+
+        <div class="book-flip"></div>
+        <button class="book-nav prev" type="button" aria-label="Previous story"><img src="assets/arrow-left.svg" alt=""></button>
+        <button class="book-nav next" type="button" aria-label="Next story"><img src="assets/arrow-right.svg" alt=""></button>
+      </article>
+
+      <!-- the typewriter: write your own -->
+      <div class="tw" id="tw">
+        <div class="tw-in">
+          <div class="tw-img"><img src="assets/typewriter.webp" alt=""></div>
+          <p class="tw-label">Share your story here</p>
+
+          <form class="sheet" id="sheet" novalidate>
+            <div class="step step-1 is-active">
+              <div class="step-row">
+                <label class="field"><input name="name" spellcheck="false" placeholder="Name" aria-label="Name" autocomplete="name" required><img class="edit" src="assets/bx-edit.svg" alt=""></label>
+                <label class="field"><input name="email" type="email" spellcheck="false" placeholder="Email" aria-label="Email" autocomplete="email" required><img class="edit" src="assets/bx-edit-b.svg" alt=""></label>
+              </div>
+              <label class="field"><input name="title" placeholder="Story Title" aria-label="Story title" required><img class="edit" src="assets/bx-edit.svg" alt=""></label>
+              <label class="field field-area"><textarea name="story" placeholder="Your story" aria-label="Your story" required></textarea><img class="edit" src="assets/bx-edit.svg" alt=""></label>
+              <div class="step-foot"><span class="step-count">1 of 2 Steps</span><button class="pill" id="next" type="submit" disabled>Next</button></div>
+            </div>
+
+            <div class="step step-2">
+              <div class="pol upload" id="upload" style="--x:421.5px;--y:151.6px;--w:215.09px;--px:4.57%;--py:1.18%;--tx:50.4%">
+                <span class="pol-base"><img src="assets/polaroid-base.jpg" alt=""></span>
+                <span class="pol-photo">
+                  <img id="photo" alt="Your photo" hidden>
+                  <span class="upload-hint"><img src="assets/plus.svg" alt=""><span id="uploadText">Upload Image</span></span>
+                </span>
+                <img class="pol-tape" src="assets/tape.webp" alt="">
+                <input type="file" id="file" accept="image/*" aria-label="Upload an image for your story">
+              </div>
+              <div class="step-foot-wide">
+                <p class="legal">By signing up, you agree to receive marketing emails. View our privacy policy and terms of service for more info.</p>
+                <div class="step-foot"><span class="step-count">2 of 2 Steps</span><button class="pill" id="submit" type="button" disabled>Submit</button></div>
+              </div>
+            </div>
+
+            <div class="step step-3" role="status">
+              <p>Your story has been submitted!</p>
+              <button class="pill" id="back" type="button">Back to stories</button>
+            </div>
+          </form>
+
+          <div class="typebars" id="typebars" aria-hidden="true"></div>
+          <i class="tw-hit" id="hit" aria-hidden="true"></i>
+        </div>
+        <button class="tw-open" id="twOpen" type="button" aria-label="Share your story here"></button>
+      </div>
+
+      <button class="snd" id="snd" type="button" aria-pressed="true">♪ typewriter sound</button>
+    </section>
+
+    <div class="marquee" aria-hidden="true"></div>
+
+    <section class="featured" id="featured">
+      <div class="featured-head">
+        <h2 data-words><em>featured</em> stories</h2>
+        <p class="rv">We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>
+      </div>
+      <div class="featured-grid" id="grid"></div>
+      <button class="btn" id="more" type="button">Read More</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-id">
+          <div class="footer-logo"><img src="assets/logo-footer.svg" alt="Boxy"></div>
+          <p class="serif-32">unbox what’s been holding you back.</p>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><img src="assets/social-ig.svg" alt=""></a>
+          <a href="#" aria-label="LinkedIn"><img src="assets/social-in.svg" alt=""></a>
+          <a href="#" aria-label="TikTok"><img src="assets/social-tt.svg" alt=""></a>
+        </div>
+      </div>
+      <div class="footer-side">
+        <a class="btn js-share" href="#write">Share your story</a>
+        <form class="subscribe" novalidate>
+          <label class="serif-32" for="sub">Subscribe for unbox stories</label>
+          <div class="subscribe-field">
+            <input id="sub" type="email" placeholder="Enter your email address" autocomplete="email" required>
+            <button type="submit" aria-label="Subscribe"><img src="assets/arrow-right-sm.svg" alt=""></button>
+            <span class="subscribe-ok" role="status">You’re in — talk soon.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom"><hr><p>© 2025 Boxy. All rights reserved.</p></div>
+  </footer>
+</div>
+<script src="js/main.js?v=2"></script>
+<script src="js/share.js?v=2"></script>
+</body>
+</html>
